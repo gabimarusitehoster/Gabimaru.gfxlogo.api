@@ -1,0 +1,17 @@
+{
+  "name": "ephoto-gfx-api",
+  "version": "1.0.0",
+  "description": "Gabimaru's powerful Ephoto GFX API with multiple text effect styles.",
+  "main": "gfxapi.js",
+  "scripts": {
+    "start": "node gfxapi.js"
+  },
+  "author": "Gabimaru",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
