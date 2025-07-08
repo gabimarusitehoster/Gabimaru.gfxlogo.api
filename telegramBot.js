@@ -2,8 +2,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 const path = require('path');
 
-const TOKEN = '7760539426:AAGYMP2NfdwaQpvXLSHYYPWsg0cnOCdkqlE';
-const AUTHORIZED_ID = 8025716898;
+const TOKEN = '8097815368:AAHui0G09N_-74D__kN2El87P-AUwHgWKtY';
+const AUTHORIZED_ID = "8025716898";
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 const USERS_FILE = path.join(__dirname, 'users.json');
