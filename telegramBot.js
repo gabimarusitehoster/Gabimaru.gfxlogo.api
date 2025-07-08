@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN = '7760539426:AAGYMP2NfdwaQpvXLSHYYPWsg0cnOCdkqlE';
-const AUTHORIZED_ID = 123456789;
+const AUTHORIZED_ID = 8025716898;
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 const USERS_FILE = path.join(__dirname, 'users.json');

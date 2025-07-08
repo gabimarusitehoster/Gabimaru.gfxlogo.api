@@ -8,7 +8,6 @@ const SELF_URL = 'https://viper-x-api.onrender.com';
 // Simple HTTP server to satisfy Render's uptime check
 http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('✅ Viper X is alive and running.\n');
 }).listen(PORT, () => {
   console.log(`✅ KeepAlive server running on port ${PORT}`);
 });
