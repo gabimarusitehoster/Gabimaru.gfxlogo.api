@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viper X Login</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #2e026d, #6c1cdb);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      padding: 0.8rem;
+      margin: 0.6rem 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    button {
+      width: 95%;
+      padding: 0.9rem;
+      background: white;
+      color: #2e026d;
+      border: none;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    h2 {
+      margin-bottom: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>🔐 Viper X Login</h2>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="Username (8 chars)" required />
+      <input type="text" name="passkey" placeholder="Passkey (4 chars)" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

