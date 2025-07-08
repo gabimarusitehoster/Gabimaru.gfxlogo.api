@@ -31,14 +31,14 @@ apt update && apt install curl git nodejs npm -y
 npm install pm2 -g
 
 # Clone your repo
-git clone https://github.com/your-username/viperx-api.git
-cd viperx-api
+git clone https://github.com/your-username/viper-x-api.git
+cd viper-x-api
 
 # Install dependencies
 npm install
 
 # Start the app
-pm2 start runSc.js --name viperx
+pm2 start run.js --name viperx
 pm2 save
 pm2 startup
 ````
